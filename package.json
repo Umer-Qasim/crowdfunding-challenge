@@ -1,0 +1,15 @@
+{
+  "name": "crowdfunding_page",
+  "version": "1.0.0",
+  "description": "A simple HTML CSS and JS project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass ./sass_scss/main.scss ./styles/main.css -w"
+  },
+  "author": "Umer Qasim",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

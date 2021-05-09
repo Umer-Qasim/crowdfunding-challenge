@@ -1,0 +1,219 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
+
+a {
+  text-decoration: none;
+  color: whitesmoke; }
+
+ul {
+  list-style: none;
+  display: inline-block; }
+
+:root {
+  font-family: 'Commissioner', sans-serif; }
+
+body {
+  box-sizing: border-box;
+  background-color: #fafafa;
+  height: 500rem; }
+
+.c-main {
+  width: clamp(100px, 90vw, 45rem);
+  height: 20rem;
+  margin: -4rem auto 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute; }
+
+.c-flex-two {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; }
+
+.u-padding-v0 {
+  padding: 0.5rem 0; }
+
+.u-padding-v1 {
+  padding: 1rem 0; }
+
+.u-padding-v2 {
+  padding: 2rem 0; }
+
+.header {
+  width: 100%;
+  height: 60vh;
+  background: url("../images/image-hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top center;
+  position: relative; }
+  .header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.93) 0%, rgba(0, 0, 0, 0.1) 100%); }
+  .header__nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 2rem 4rem; }
+  .header__list {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end; }
+  .header__item {
+    padding: 1rem; }
+    .header__item--logo {
+      margin-right: auto; }
+  .header__link {
+    position: relative;
+    padding: 0.3rem 0; }
+    .header__link:hover::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -0.1rem;
+      width: 80%;
+      transform: translateX(-50%);
+      height: 3px;
+      background-color: #3cb4ac;
+      animation: nav-highlight 0.3s linear forwards; }
+    .header__link--active::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -0.1rem;
+      width: 80%;
+      transform: translateX(-50%);
+      height: 3px;
+      background-color: #3cb4ac;
+      animation: unset !important; }
+
+.desc {
+  text-align: center;
+  background-color: white;
+  padding: 3rem 4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem; }
+  .desc__logo {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%); }
+  .desc__hsecondary {
+    color: #7a7a7a;
+    font-weight: 500;
+    font-size: 0.9rem; }
+
+.stats {
+  text-align: center;
+  background-color: white;
+  padding: 3rem 4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 2rem; }
+  .stats__list {
+    display: flex;
+    color: #7a7a7a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 2rem; }
+  .stats__item {
+    padding: 0 4rem; }
+    .stats__item:not(:last-child) {
+      border-right: 1px solid #ddd; }
+  .stats__amount {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5rem 0;
+    color: black; }
+  .stats__bar {
+    display: block;
+    height: 0.6rem;
+    width: 90%;
+    background-color: #eee;
+    border-radius: 3rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); }
+    .stats__bar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 3rem;
+      width: calc(var(--percent) * 1%);
+      background-color: #3cb4ac;
+      animation: bar-fill 0.5s ease-in forwards; }
+
+.about {
+  text-align: center;
+  background-color: white;
+  padding: 3rem 4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left; }
+  .about__desc {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    color: #7a7a7a; }
+
+.btn {
+  background-color: #3cb4ac;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+  padding: 1.1em 2em;
+  border-radius: 4em;
+  text-align: center;
+  transition: all 0.2s linear; }
+  .btn:hover {
+    color: white;
+    background-color: #147b74; }
+  .btn--bookmark {
+    position: relative;
+    padding-left: 4em;
+    background-color: #ececec;
+    color: #7a7a7a; }
+    .btn--bookmark:hover {
+      color: white; }
+      .btn--bookmark:hover path {
+        fill: white; }
+  .btn--icon {
+    position: absolute;
+    left: -3px;
+    top: -3px; }
+    .btn--icon path {
+      transition: all 0.2s linear; }
+
+@keyframes nav-highlight {
+  from {
+    width: 0; }
+  to {
+    width: 80%; } }
+
+@keyframes bar-fill {
+  from {
+    width: 0; }
+  to {
+    width: calc(var(--percent) * 1%); } }
