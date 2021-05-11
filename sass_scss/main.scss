@@ -26,6 +26,27 @@ $color-secondary-light: hsl(0, 0%, 48%);
     margin-bottom: 1.5rem;
 }
 
+@mixin desc {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    color: $color-secondary-light;
+}
+
+@mixin out-of-stock {
+    position: relative;
+    &::after{   
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+}
+
 //--------------Resets---------------------//
 *, *::after, *::before{
     padding: 0;
@@ -182,6 +203,7 @@ body{
         justify-content: flex-start;
         text-align: left;
         margin-bottom: 2rem;
+        flex-wrap: wrap;
     }
 
     &__item{
@@ -228,14 +250,11 @@ body{
     text-align: left;
 
     &__primary{
-
+        
     }
 
     &__desc{
-        padding: 1rem 0;
-        font-size: 0.9rem;
-        line-height: 1.6rem;
-        color: $color-secondary-light;
+        @include desc();
     }
 
     &__para{
@@ -243,7 +262,298 @@ body{
     }
 }
 
+.prod-card{
+    @include sections();
+    text-align: left;
+    padding: 2rem;
+    &__primary{
+        
+    }
 
+    &__secondary{
+        color: $color-primary-light;
+    }
+
+    &__desc{
+        @include desc();
+    }
+
+    &__stat{
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $color-secondary-light;
+    }
+
+    &__amount{
+        font-size: 1.5rem;
+        color: $color-secondary-dark;
+        font-weight: 700;
+    }
+
+    &--oos{
+        @include out-of-stock();
+    }
+}
+
+
+
+.modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    // display: none;
+
+    &__cross{
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        &:hover{
+            transform: rotate(180deg);
+        }
+    }
+
+    &__content{
+        @include sections();
+        width: clamp(100px, 90vw, 45rem);
+        height: clamp(100px, 900px , 90vh);
+        padding: 2rem 2rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        text-align: left;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{
+            width: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: $color-primary-dark;
+            &:hover{
+                background-color: darken($color: $color-primary-dark, $amount: 5%)
+            }
+        }
+        
+    }
+
+    &__primary{
+
+    }
+
+    &__desc{
+        @include desc();
+    }
+
+    &-card{
+        @include sections();
+        display: grid;
+        grid-template-columns: 5% 95%;
+        justify-content: center;
+        align-items: start;
+        text-align: left;
+        padding: 1rem;
+        overflow: hidden;
+
+        &__content{
+            padding: 1rem;
+        }
+
+       &__input{
+            width: 1.1rem;
+            height: 1.1rem;
+            padding: 0.55rem;
+            margin-right: 0.5rem;
+            position: relative;
+            top: 2%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(1.2rem);
+
+            & input{
+                opacity: 0;
+                z-index: 11111;
+                cursor: pointer;
+            }
+
+            input:checked + .modal-card__select{
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 80%;
+                    height: 80%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-47%, -49.5%);
+                    border-radius: 50%;
+                    background-color: $color-primary-dark;
+                }
+                
+            }
+            
+        }
+
+        &__select{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            border: 1px solid $color-primary-light;
+            transition: all 0.2s ease-in;
+            cursor: pointer;
+        }
+
+        &__content{
+
+        }
+
+        &__desc{
+            @include desc();
+            text-align: left;
+        }
+
+        &__title{
+            
+                
+        }
+
+        &__label{
+            color: $color-primary-light;
+            font-weight: 700;
+            &:hover{
+                color: $color-primary-dark;
+                cursor: pointer;
+            }
+        }
+
+        &__stat{
+            color: $color-secondary-light;
+            // margin-right: auto;
+            span{
+                font-size: 1.5rem;
+                color: $color-secondary-dark;
+                font-weight: 700;
+            }
+        }
+
+        &--oos{
+            @include out-of-stock();
+        }
+
+
+
+    }
+
+    &-pledge{
+        grid-column: 2 / span 2;
+        position: relative;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        display: none;
+        &__text{
+            color: $color-secondary-light;
+
+        }
+
+        .shake{
+            animation: shake 0.3s forwards linear;
+        }
+
+        &__wrapper{
+            margin-left: auto;
+            display: inline-block;
+            position: relative;
+            &::before{
+                content: '$';
+                position: absolute;
+                left: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family: 'Commissioner', sans-serif;
+                font-weight: 700;
+                font-size: 1.1rem;
+                color: $color-secondary-light;
+
+            }
+
+        }
+
+        &__amount{
+            padding: 1rem 1rem 1rem 1.2rem;
+            height: 3rem;
+            width: 6rem;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            &:focus{
+                outline: none;
+                border-color: $color-primary-dark;
+            }
+        }
+
+        &__submit{
+            margin: 0 1rem;
+            display: inline-block;
+            height: 3rem;
+            width: 6rem;
+            padding: 0 !important;
+            border-radius: 30px;
+            border: none;
+            text-align: center;
+            font-family: 'Commissioner', sans-serif;
+            font-weight: 500;
+            &--right{
+                margin-left: auto;
+            }
+        }
+
+        
+        &::before{
+            position: absolute;
+            content: '';
+            width: 200%;
+            height: 1px;
+            background-color: #ddd;
+            left: -50%;
+            top: -0.5rem;
+        }
+    }
+
+
+    &::after{
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 100;
+    }
+
+}
 
 
 
@@ -264,6 +574,7 @@ body{
     border-radius: 4em;
     text-align: center;
     transition: all 0.2s linear;
+    cursor: pointer;
 
     &:hover{
         color: white;
@@ -286,6 +597,17 @@ body{
             }
         }
     }
+    &--bookmarked{
+        color: $color-primary-dark !important;
+        & path{
+        fill: white !important;
+        }
+        
+        &:hover{
+            color: white !important;
+        }
+    }
+
 
     &--icon{
         position: absolute;
@@ -294,6 +616,14 @@ body{
         & path{
             transition: all 0.2s linear;
         }
+    }
+
+    &--secondary{
+        padding: 0.8em 1.5em;
+    }
+
+    &--oos{
+        background-color: #aaa;
     }
 }
 
@@ -315,5 +645,23 @@ body{
     }
     to{
         width: calc(var(--percent) * 1%);
+    }
+}
+
+@keyframes shake{
+    20%{
+        transform: translateX(-0.2rem);
+    }
+    40%{
+        transform: translateX(0.2rem);
+    }
+    60%{
+        transform: translateX(-0.2rem);
+    }
+    80%{
+        transform: translateX(0.2rem);
+    }
+    100%{
+        transform: translateX(0);
     }
 }
