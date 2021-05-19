@@ -1,3 +1,20 @@
+window.addEventListener('resize', () => {
+    if(window.innerWidth >= 500){
+        Array.from(document.querySelectorAll('.header__item')).forEach((item) => {
+            if(item.classList.length === 1){
+                item.style.display = 'flex';
+            }
+        })
+    }else{
+        Array.from(document.querySelectorAll('.header__item')).forEach((item) => {
+            if(item.classList.length === 1){
+                item.style.display = 'none';
+            }
+        })
+        document.querySelector('.header__burger').checked = false;
+    }
+})
+
 document.querySelector('.btn--primary').addEventListener('click', (e) => {
     document.querySelector('.modal').style.display = 'block'; 
     document.querySelector('.modal__content').style.display = 'block'; 
