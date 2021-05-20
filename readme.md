@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/built-using-vanilla-js-and-scssbem-OmJ950jsL)
-- Live Site URL: [Add live site URL here](https://umer-qasim.github.io/crowdfunding-challenge/)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/built-using-vanilla-js-and-scssbem-OmJ950jsL)
+- Live Site URL: [Live Demo](https://umer-qasim.github.io/crowdfunding-challenge/)
 
 ### Built with
 
