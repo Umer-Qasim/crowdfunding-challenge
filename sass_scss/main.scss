@@ -127,7 +127,6 @@ body{
         background: rgb(0,0,0);
         background: linear-gradient(180deg, rgba(0,0,0,0.93) 0%, rgba(0,0,0,0.1) 100%);
     }
-
     &__nav{
        position: absolute;
        left: 0;
@@ -136,24 +135,18 @@ body{
        z-index: 100;
        padding: 2rem 4rem;
     }
-
     &__list{
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: flex-end;
     }
-
     &__item{
         padding: 1rem;
         &--logo{
             margin-right:auto;
         }
-        &--burger{
-            
-        }
     }
-
     &__burger{
         display: none;
     }
@@ -173,7 +166,6 @@ body{
                 animation: unset !important;
             }
         }
-        
     }
 }
 
@@ -185,11 +177,6 @@ body{
         top: 0;
         transform: translate(-50%, -50%);
     }
-
-    &__hprimary{
-        // padding: 1rem 0
-    }
-
     &__hsecondary{
         color: $color-secondary-light;
         font-weight: 500;
@@ -200,7 +187,6 @@ body{
 .stats{
     @include sections();
     padding: 2.5rem 2rem;
-
     &__list{
         display: flex;
         color: $color-secondary-light;
@@ -212,15 +198,12 @@ body{
         margin-bottom: 2rem;
         flex-wrap: wrap;
     }
-
     &__item{
         padding: 0 4rem;
         &:not(:last-child){
           border-right: 1px solid #ddd;
         } 
-
     }
-
     &__amount{
         display: block;
         font-size: 1.8rem;
@@ -256,17 +239,8 @@ body{
 .about{
     @include sections();
     text-align: left;
-
-    &__primary{
-        
-    }
-
     &__desc{
         @include desc();
-    }
-
-    &__para{
-        
     }
 }
 
@@ -274,30 +248,22 @@ body{
     @include sections();
     text-align: left;
     padding: 2rem;
-    &__primary{
-        
-    }
-
     &__secondary{
         color: $color-primary-light;
     }
-
     &__desc{
         @include desc();
     }
-
     &__stat{
         font-size: 0.8rem;
         font-weight: 500;
         color: $color-secondary-light;
     }
-
     &__amount{
         font-size: 1.5rem;
         color: $color-secondary-dark;
         font-weight: 700;
     }
-
     &--oos{
         @include out-of-stock();
     }
@@ -311,7 +277,6 @@ body{
     height: 100vh;
     z-index: 1000;
     display: none;
-
     &__cross{
         display: block;
         position: absolute;
@@ -323,7 +288,6 @@ body{
             transform: rotate(180deg);
         }
     }
-
     &-success{
         text-align: center;
         @include sections();
@@ -335,20 +299,13 @@ body{
         z-index: 1000;
         width: clamp(100px, 90vw, 35rem);
         display: none;
-
-        &__check{
-            
-        }
-
         &__title{
             padding: 1rem 0 0 0;
         }
-
         &__desc{
             @include desc();
         }
     }
-
     &__content{
         @include sections();
         width: clamp(100px, 90vw, 45rem);
@@ -365,14 +322,11 @@ body{
         &::-webkit-scrollbar{
             width: 0.5rem;
         }
-
-        &::-webkit-scrollbar-track
-        {
+        &::-webkit-scrollbar-track{
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             border-radius: 10px;
             background-color: #F5F5F5;
         }
-
         &::-webkit-scrollbar-thumb{
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -381,17 +335,10 @@ body{
                 background-color: darken($color: $color-primary-dark, $amount: 5%)
             }
         }
-        
     }
-
-    &__primary{
-
-    }
-
     &__desc{
         @include desc();
     }
-
     &-card{
         @include sections();
         display: grid;
@@ -401,12 +348,10 @@ body{
         text-align: left;
         padding: 1rem;
         overflow: hidden;
-
         &__content{
             padding: 1rem;
         }
-
-       &__input{
+        &__input{
             width: 1.1rem;
             height: 1.1rem;
             padding: 0.55rem;
@@ -417,13 +362,11 @@ body{
             align-items: center;
             justify-content: center;
             transform: translateY(1.2rem);
-
             & input{
                 opacity: 0;
                 z-index: 11111;
                 cursor: pointer;
             }
-
             input:checked + .modal-card__select{
                 &::after{
                     content: '';
@@ -436,11 +379,8 @@ body{
                     border-radius: 50%;
                     background-color: $color-primary-dark;
                 }
-                
             }
-            
         }
-
         &__select{
             content: '';
             position: absolute;
@@ -453,21 +393,10 @@ body{
             transition: all 0.2s ease-in;
             cursor: pointer;
         }
-
-        &__content{
-
-        }
-
         &__desc{
             @include desc();
             text-align: left;
         }
-
-        &__title{
-            
-                
-        }
-
         &__label{
             color: $color-primary-light;
             font-weight: 700;
@@ -476,25 +405,18 @@ body{
                 cursor: pointer;
             }
         }
-
         &__stat{
             color: $color-secondary-light;
-            // margin-right: auto;
             span{
                 font-size: 1.5rem;
                 color: $color-secondary-dark;
                 font-weight: 700;
             }
         }
-
         &--oos{
             @include out-of-stock();
         }
-
-
-
     }
-
     &-pledge{
         grid-column: 2 / span 2;
         position: relative;
@@ -505,13 +427,10 @@ body{
         display: none;
         &__text{
             color: $color-secondary-light;
-
         }
-
         .shake{
             animation: shake 0.3s forwards linear;
         }
-
         &__wrapper{
             margin-left: auto;
             display: inline-block;
@@ -526,11 +445,8 @@ body{
                 font-weight: 700;
                 font-size: 1.1rem;
                 color: $color-secondary-light;
-
             }
-
         }
-
         &__amount{
             padding: 1rem 1rem 1rem 1.2rem;
             height: 3rem;
@@ -545,7 +461,6 @@ body{
                 border-color: $color-primary-dark;
             }
         }
-
         &__submit{
             margin: 0 1rem;
             display: inline-block;
@@ -561,8 +476,6 @@ body{
                 margin-left: auto;
             }
         }
-
-        
         &::before{
             position: absolute;
             content: '';
@@ -573,8 +486,6 @@ body{
             top: -0.5rem;
         }
     }
-
-
     &::after{
         content: '';
         position: fixed;
@@ -585,18 +496,7 @@ body{
         background-color: rgba(0,0,0,0.5);
         z-index: 100;
     }
-
 }
-
-
-
-
-
-
-
-
-
-
 
 .btn{
     background-color: $color-primary-light;
@@ -609,16 +509,10 @@ body{
     transition: all 0.2s linear;
     cursor: pointer;
     color: whitesmoke;
-
     &:hover{
         color: white;
         background-color: $color-primary-dark;
     }
-    
-    &--primary{
-
-    }
-
     &--bookmark{
         position: relative;
         padding-left: 4em;
@@ -641,8 +535,6 @@ body{
             color: white !important;
         }
     }
-
-
     &--icon{
         position: absolute;
         left: -3px;
@@ -651,18 +543,15 @@ body{
             transition: all 0.2s linear;
         }
     }
-
     &--secondary{
         padding: 0.8em 1.5em;
     }
-
     &--oos{
         background-color: #aaa;
     }
 }
 
-
-
+//------------Animations-----------//
 
 @keyframes nav-highlight{
     from{
@@ -708,6 +597,8 @@ body{
         opacity: 1;
     }
 }
+
+//------------Media Queries-----------//
 
 @media (max-width:500px) {
     :root{
@@ -772,7 +663,6 @@ body{
                 }
             }
         }
-
         &__burger{
             display: block;
             width: 100%;
@@ -796,11 +686,6 @@ body{
                 }
             }
         }
-
-        &__link{
-
-        }
-        
         &__nav{
             padding: 1rem;
         }
@@ -862,13 +747,9 @@ body{
     }
 
     .modal-pledge{
-
-
         &__submit{
             height: 3rem;
             width: 8rem;
         }
     }
-
-    
 }
